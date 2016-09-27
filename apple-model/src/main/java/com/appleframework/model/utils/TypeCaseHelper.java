@@ -1,7 +1,6 @@
 package com.appleframework.model.utils;
 
 import java.math.BigDecimal;
-import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.DateFormat;
@@ -29,7 +28,7 @@ public class TypeCaseHelper {
 	 * @return Object
 	 * @throws TypeCastException
 	 */
-	@SuppressWarnings("unused")
+	@SuppressWarnings({ "unused", "deprecation" })
 	public static Object convert(Object obj, String type, String format) throws TypeCastException {
 		Locale locale = new Locale("zh", "CN", "");
 		if (obj == null)
@@ -102,13 +101,12 @@ public class TypeCaseHelper {
 					Number tempNum = nf.parse(str);
 					return new Integer(tempNum.intValue());
 				} catch (ParseException e) {
-					throw new TypeCastException("Could not convert " + str + " to " + type + ": ",
-							e);
+					throw new TypeCastException("Could not convert " + str + " to " + type + ": ", e);
 				}
-			if ("Date".equals(type) || "java.sql.Date".equals(type)) {
+			if ("SqlDate".equals(type) || "java.sql.Date".equals(type)) {
 				if (format == null || format.length() == 0)
 					try {
-						return Date.valueOf(str);
+						return java.sql.Date.valueOf(str);
 					} catch (Exception e) {
 						try {
 							DateFormat df = null;
@@ -117,19 +115,42 @@ public class TypeCaseHelper {
 							else
 								df = DateFormat.getDateInstance(3);
 							java.util.Date fieldDate = df.parse(str);
-							return new Date(fieldDate.getTime());
+							return new java.sql.Date(fieldDate.getTime());
 						} catch (ParseException e1) {
-							throw new TypeCastException("Could not convert " + str + " to " + type
-									+ ": ", e);
+							throw new TypeCastException("Could not convert " + str + " to " + type + ": ", e);
 						}
 					}
 				try {
 					SimpleDateFormat sdf = new SimpleDateFormat(format);
 					java.util.Date fieldDate = sdf.parse(str);
-					return new Date(fieldDate.getTime());
+					return new java.sql.Date(fieldDate.getTime());
 				} catch (ParseException e) {
-					throw new TypeCastException("Could not convert " + str + " to " + type + ": ",
-							e);
+					throw new TypeCastException("Could not convert " + str + " to " + type + ": ", e);
+				}
+			}
+			if ("Date".equals(type) || "java.util.Date".equals(type)) {
+				if (format == null || format.length() == 0)
+					try {
+						return new java.util.Date(str);
+					} catch (Exception e) {
+						try {
+							DateFormat df = null;
+							if (locale != null)
+								df = DateFormat.getDateInstance(3, locale);
+							else
+								df = DateFormat.getDateInstance(3);
+							java.util.Date fieldDate = df.parse(str);
+							return new java.util.Date(fieldDate.getTime());
+						} catch (ParseException e1) {
+							throw new TypeCastException("Could not convert " + str + " to " + type + ": ", e);
+						}
+					}
+				try {
+					SimpleDateFormat sdf = new SimpleDateFormat(format);
+					java.util.Date fieldDate = sdf.parse(str);
+					return new java.util.Date(fieldDate.getTime());
+				} catch (ParseException e) {
+					throw new TypeCastException("Could not convert " + str + " to " + type + ": ", e);
 				}
 			}
 			if ("Timestamp".equals(type) || "java.sql.Timestamp".equals(type)) {
@@ -157,12 +178,10 @@ public class TypeCaseHelper {
 					java.util.Date fieldDate = sdf.parse(str);
 					return new Timestamp(fieldDate.getTime());
 				} catch (ParseException e) {
-					throw new TypeCastException("Could not convert " + str + " to " + type + ": ",
-							e);
+					throw new TypeCastException("Could not convert " + str + " to " + type + ": ", e);
 				}
 			} else {
-				throw new TypeCastException("Conversion from " + fromType + " to " + type
-						+ " not currently supported");
+				throw new TypeCastException("Conversion from " + fromType + " to " + type + " not currently supported");
 			}
 		}
 		if (obj instanceof BigDecimal) {
@@ -181,8 +200,7 @@ public class TypeCaseHelper {
 			if ("Integer".equals(type))
 				return new Integer((int) Math.round(bigD.doubleValue()));
 			else
-				throw new TypeCastException("Conversion from " + fromType + " to " + type
-						+ " not currently supported");
+				throw new TypeCastException("Conversion from " + fromType + " to " + type + " not currently supported");
 		}
 		if (obj instanceof Double) {
 			fromType = "Double";
@@ -270,9 +288,9 @@ public class TypeCaseHelper {
 				throw new TypeCastException("Conversion from " + fromType + " to " + type
 						+ " not currently supported");
 		}
-		if (obj instanceof Date) {
+		if (obj instanceof java.sql.Date) {
 			fromType = "Date";
-			Date dte = (Date) obj;
+			java.sql.Date dte = (java.sql.Date) obj;
 			if ("String".equals(type) || "java.lang.String".equals(type))
 				if (format == null || format.length() == 0) {
 					return dte.toString();
@@ -283,13 +301,30 @@ public class TypeCaseHelper {
 			if ("Date".equals(type) || "java.sql.Date".equals(type))
 				return obj;
 			if ("Time".equals(type) || "java.sql.Time".equals(type))
-				throw new TypeCastException("Conversion from " + fromType + " to " + type
-						+ " not currently supported");
+				throw new TypeCastException("Conversion from " + fromType + " to " + type + " not currently supported");
 			if ("Timestamp".equals(type) || "java.sql.Timestamp".equals(type))
 				return new Timestamp(dte.getTime());
 			else
-				throw new TypeCastException("Conversion from " + fromType + " to " + type
-						+ " not currently supported");
+				throw new TypeCastException("Conversion from " + fromType + " to " + type + " not currently supported");
+		}
+		if (obj instanceof java.util.Date) {
+			fromType = "Date";
+			java.util.Date dte = (java.util.Date) obj;
+			if ("String".equals(type) || "java.lang.String".equals(type))
+				if (format == null || format.length() == 0) {
+					return dte.toString();
+				} else {
+					SimpleDateFormat sdf = new SimpleDateFormat(format);
+					return sdf.format(new java.util.Date(dte.getTime()));
+				}
+			if ("Date".equals(type) || "java.util.Date".equals(type))
+				return obj;
+			if ("Time".equals(type) || "java.sql.Time".equals(type))
+				throw new TypeCastException("Conversion from " + fromType + " to " + type + " not currently supported");
+			if ("Timestamp".equals(type) || "java.sql.Timestamp".equals(type))
+				return new Timestamp(dte.getTime());
+			else
+				throw new TypeCastException("Conversion from " + fromType + " to " + type + " not currently supported");
 		}
 		if (obj instanceof Timestamp) {
 			fromType = "Timestamp";
@@ -302,7 +337,7 @@ public class TypeCaseHelper {
 					return sdf.format(new java.util.Date(tme.getTime()));
 				}
 			if ("Date".equals(type) || "java.sql.Date".equals(type))
-				return new Date(tme.getTime());
+				return new java.sql.Date(tme.getTime());
 			if ("Time".equals(type) || "java.sql.Time".equals(type))
 				return new Time(tme.getTime());
 			if ("Timestamp".equals(type) || "java.sql.Timestamp".equals(type))
@@ -377,11 +412,16 @@ public class TypeCaseHelper {
 		return ((BigDecimal) convert(obj, "BigDecimal", null)).setScale(scale, 5);
 	}
 
-	public static Date convert2SqlDate(Object obj, String format) throws TypeCastException {
-		return (Date) convert(obj, "Date", format);
+	public static java.sql.Date convert2SqlDate(Object obj, String format) throws TypeCastException {
+		return (java.sql.Date) convert(obj, "SqlDate", format);
+	}
+	
+	public static java.util.Date convert2Date(Object obj, String format) throws TypeCastException {
+		return (java.util.Date) convert(obj, "Date", format);
 	}
 
 	public static Timestamp convert2Timestamp(Object obj, String format) throws TypeCastException {
 		return (Timestamp) convert(obj, "Timestamp", format);
 	}
+	
 }
