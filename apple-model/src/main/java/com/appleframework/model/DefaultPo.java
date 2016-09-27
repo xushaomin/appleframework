@@ -10,10 +10,11 @@ import java.io.Serializable;
  * @since 2011-05-03
  * @see java.io.Serializable
  */
-@SuppressWarnings("serial")
 public abstract class DefaultPo implements Serializable {
-	
-    /**
+
+	private static final long serialVersionUID = 1L;
+
+	/**
      * 获取主键或强制非空键值组合
      */
     public abstract Key getPk();

@@ -11,8 +11,9 @@ import com.appleframework.model.exception.NullAbleException;
  * @author xusm
  * @since 2011-05-03
  */
-@SuppressWarnings("serial")
 public class DefaultKey extends DefaultDto implements Key {
+
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * 对非空数据传输对象进行键值非空性校验

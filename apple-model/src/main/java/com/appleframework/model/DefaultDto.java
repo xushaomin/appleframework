@@ -2,7 +2,6 @@ package com.appleframework.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.List;
@@ -27,8 +26,7 @@ import com.appleframework.model.utils.TypeCaseHelper;
  */
 @XmlType(name = "Dto")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class DefaultDto extends HashMap<String, Object> implements Dto,
-		Serializable {
+public class DefaultDto extends HashMap<String, Object> implements Dto, Serializable {
 
 	private static final long serialVersionUID = 6654280697600536538L;
 
@@ -61,10 +59,25 @@ public class DefaultDto extends HashMap<String, Object> implements Dto,
 	 *            键名
 	 * @return Date 键值
 	 */
-	public Date getAsDate(String key) {
-		Object obj = TypeCaseHelper.convert(get(key), "Date", "yyyy-MM-dd");
+	public java.util.Date getAsDate(String key) {
+		Object obj = TypeCaseHelper.convert(get(key), "Date", "yyyy-MM-dd HH:mm:ss");
 		if (obj != null)
-			return (Date) obj;
+			return (java.util.Date) obj;
+		else
+			return null;
+	}
+	
+	/**
+	 * 以Date类型返回键值
+	 * 
+	 * @param key
+	 *            键名
+	 * @return Date 键值
+	 */
+	public java.sql.Date getAsSqlDate(String key) {
+		Object obj = TypeCaseHelper.convert(get(key), "SqlDate", "yyyy-MM-dd");
+		if (obj != null)
+			return (java.sql.Date) obj;
 		else
 			return null;
 	}
@@ -80,6 +93,21 @@ public class DefaultDto extends HashMap<String, Object> implements Dto,
 		Object obj = TypeCaseHelper.convert(get(key), "Integer", null);
 		if (obj != null)
 			return (Integer) obj;
+		else
+			return null;
+	}
+	
+	/**
+	 * 以Boolean类型返回键值
+	 * 
+	 * @param key
+	 *            键名
+	 * @return Integer 键值
+	 */
+	public Boolean getAsBoolean(String key) {
+		Object obj = TypeCaseHelper.convert(get(key), "Boolean", null);
+		if (obj != null)
+			return (Boolean) obj;
 		else
 			return null;
 	}
@@ -314,6 +342,14 @@ public class DefaultDto extends HashMap<String, Object> implements Dto,
 		return dto;
 	}
 	
+	public static DefaultDto create(Map<String, Object> params) {
+		DefaultDto dto = new DefaultDto();
+		if (params != null && params.size() > 0) {
+			dto.putAll(params);
+        }
+		return dto;
+	}
+	
 	public void addParameters(Object... pairs) {
         if (pairs == null || pairs.length == 0) {
             return;
@@ -341,8 +377,6 @@ public class DefaultDto extends HashMap<String, Object> implements Dto,
         }
         putAll(parameters);
     }
-    
-    
     
     @Override
 	public void addParameters(String key, Object value) {

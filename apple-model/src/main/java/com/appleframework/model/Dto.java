@@ -1,7 +1,6 @@
 package com.appleframework.model;
 
 import java.math.BigDecimal;
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Locale;
@@ -16,6 +15,13 @@ import com.appleframework.model.page.Pagination;
  * @see java.util.Map
  */
 public interface Dto extends Map<String, Object> {
+	
+	/**
+	 * 以Boolean类型返回键值
+	 * @param key 键名
+	 * @return Integer 键值
+	 */
+	public Boolean getAsBoolean(String key);
 	
 	/**
 	 * 以Integer类型返回键值
@@ -50,7 +56,14 @@ public interface Dto extends Map<String, Object> {
      * @param pStr:属性Key
      * @return Integer
 	 */
-    public Date getAsDate(String pStr);
+    public java.util.Date getAsDate(String pStr);
+    
+    /**
+	 * 取出属性值
+     * @param pStr:属性Key
+     * @return Integer
+	 */
+    public java.sql.Date getAsSqlDate(String pStr);
     
 	/**
 	 * 以Timestamp类型返回键值
