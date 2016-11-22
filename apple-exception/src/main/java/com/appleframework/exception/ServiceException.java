@@ -64,6 +64,21 @@ public class ServiceException extends AppleException {
 			return RSP + transform(clazz) + ERROR + code;
 	}
 	
+	public ServiceException(String code, String messageFormat, Object... args) {
+        super(String.format(messageFormat, args));
+        this.code = code;
+        this.message = String.format(messageFormat, args);
+    }
 	
+	/**
+    * 实例化异常
+    * 
+    * @param messageFormat
+    * @param args
+    * @return
+    */
+   public ServiceException newInstance(String messageFormat, Object... args) {
+       return new ServiceException(this.code, messageFormat, args);
+   }
 
 }
