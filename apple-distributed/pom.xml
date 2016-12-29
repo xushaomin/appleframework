@@ -6,7 +6,7 @@
 	<parent>
 		<artifactId>appleframework</artifactId>
 		<groupId>com.appleframework</groupId>
-		<version>0.1.6.RELEASE</version>
+		<version>0.1.7.RELEASE</version>
 	</parent>
 	<artifactId>apple-distributed</artifactId>
 	<name>apple-distributed</name>
@@ -17,6 +17,12 @@
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>apple-exception</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>apple-model</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		
