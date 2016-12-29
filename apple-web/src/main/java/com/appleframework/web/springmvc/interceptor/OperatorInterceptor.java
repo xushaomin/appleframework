@@ -25,7 +25,7 @@ public class OperatorInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
 		Object user = httpServletRequest.getSession().getAttribute(SESSION_USER_KEY);
 		if (null != user) {
-			Operator operator = Operator.creat(OperatorType.OSS, user);
+			Operator operator = Operator.creat(OperatorType.OSS, user.toString());
 			invokeContext.setOperator(operator);
 		}
 		return true;
