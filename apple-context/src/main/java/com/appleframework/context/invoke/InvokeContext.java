@@ -7,4 +7,5 @@ public interface InvokeContext {
 	public void setOperator(Operator operator);
 	
 	public Operator getOperator();
+	
 }
