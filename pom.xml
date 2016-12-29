@@ -553,7 +553,7 @@
 	<pluginRepositories>
 		<pluginRepository>
 			<id>apple-repos</id>
-			<url>http://mvnrepo.appleframework.com/nexus/content/groups/public</url>
+			<url>http://mvnrepo.appleframework.com：8081/nexus/content/groups/public</url>
 		</pluginRepository>
 	</pluginRepositories>
 
