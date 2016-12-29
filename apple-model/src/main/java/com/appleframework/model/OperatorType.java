@@ -2,6 +2,7 @@ package com.appleframework.model;
 
 public enum OperatorType {
 
+	ROBOT("机器人", (short)4),
 	SYSTEM("系统自动", (short)3),
 	OSS("运营后台", (short)2),
 	USER("用户", (short)1);
@@ -21,6 +22,15 @@ public enum OperatorType {
 		for (OperatorType c : OperatorType.values()) {
 			if (c.getIndex() == index) {
 				return c.name;
+			}
+		}
+		return null;
+	}
+	
+	public static OperatorType get(int index) {
+		for (OperatorType c : OperatorType.values()) {
+			if (c.getIndex() == index) {
+				return c;
 			}
 		}
 		return null;

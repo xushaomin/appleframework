@@ -20,6 +20,11 @@ public class Operator implements Serializable {
 	public static Operator creat(OperatorType type, Object user) {
 		return new Operator(type, user);
 	}
+	
+	public static Operator creat(short type, Object user) {
+		OperatorType operatorType = OperatorType.valueOf(OperatorType.getName(type));
+		return new Operator(operatorType, user);
+	}
 
 	public Object getUser() {
 		return user;
