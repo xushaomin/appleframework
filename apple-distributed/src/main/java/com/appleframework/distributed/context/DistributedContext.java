@@ -1,13 +1,14 @@
 package com.appleframework.distributed.context;
 
 import com.alibaba.dubbo.rpc.RpcContext;
+import com.appleframework.context.invoke.InvokeContext;
 import com.appleframework.model.Operator;
 
-public class DistributedContext {
+public class DistributedContext implements InvokeContext {
 	
 	private static String KEY = "operator";
 
-	public static void setOperator(Operator operator) {
+	public void setOperator(Operator operator) {
 		RpcContext.getContext().set(KEY, operator);
 	}
 	
