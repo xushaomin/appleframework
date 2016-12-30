@@ -31,10 +31,7 @@ public class DistributedContext implements InvokeContext {
 	}
 	
 	public static DistributedContext getInstance() {
-		if (context == null) {
-			context = new DistributedContext();
-		}
-		return context;
+		return instance();
 	}
 	
 }
