@@ -7,6 +7,8 @@ import com.appleframework.model.OperatorType;
 
 public class DistributedContext implements InvokeContext {
 	
+	private static DistributedContext context;
+	
 	private static String KEY_ID   = "opid";
 	private static String KEY_TYPE = "optype";
 
@@ -20,4 +22,19 @@ public class DistributedContext implements InvokeContext {
 		String type = RpcContext.getContext().getAttachment(KEY_TYPE);
 		return Operator.creat(OperatorType.get(Integer.parseInt(type)), id);
 	}
+	
+	public static DistributedContext instance() {
+		if (context == null) {
+			context = new DistributedContext();
+		}
+		return context;
+	}
+	
+	public static DistributedContext getInstance() {
+		if (context == null) {
+			context = new DistributedContext();
+		}
+		return context;
+	}
+	
 }
