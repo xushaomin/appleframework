@@ -2,21 +2,26 @@ package com.appleframework.model;
 
 public enum OperatorType {
 
-	ROBOT("机器人", (short)4),
-	SYSTEM("系统自动", (short)3),
-	OSS("运营后台", (short)2),
-	USER("用户", (short)1);
+	TYPE_09("类型9", 9),
+	TYPE_08("类型8", 8),
+	TYPE_07("类型7", 7),
+	TYPE_06("类型6", 6),
+	TYPE_05("类型5", 5),
+	TYPE_04("类型4", 4),
+	TYPE_03("类型3", 3),
+	TYPE_02("类型2", 2),
+	TYPE_01("类型1", 1);
 	
 	// 成员变量
 	private String name;
-	private short index;
+	private Integer index;
 
 	// 构造方法
-	private OperatorType(String name, short index) {
+	private OperatorType(String name, Integer index) {
 		this.name = name;
 		this.index = index;
 	}
-	
+
 	// 普通方法
 	public static String getName(int index) {
 		for (OperatorType c : OperatorType.values()) {
@@ -26,7 +31,7 @@ public enum OperatorType {
 		}
 		return null;
 	}
-	
+
 	public static OperatorType get(int index) {
 		for (OperatorType c : OperatorType.values()) {
 			if (c.getIndex() == index) {
@@ -44,11 +49,11 @@ public enum OperatorType {
 		this.name = name;
 	}
 
-	public short getIndex() {
+	public Integer getIndex() {
 		return index;
 	}
 
-	public void setIndex(short index) {
+	public void setIndex(Integer index) {
 		this.index = index;
 	}
 	

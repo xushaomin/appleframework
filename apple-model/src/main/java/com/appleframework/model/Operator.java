@@ -6,31 +6,40 @@ public class Operator implements Serializable {
 
 	private static final long serialVersionUID = -3380428902609264726L;
 
-	protected Object user; // 操作者用户名称或者ID
+	protected OperatorUser user; // 操作者用户
 
-	protected OperatorType type; // 操作者人
-	
-	public Operator() {}
-	
-	public Operator(OperatorType type, Object user) {
+	protected OperatorType type; // 操作者类型
+
+	public Operator() {
+	}
+
+	public Operator(OperatorType type, OperatorUser user) {
 		this.type = type;
 		this.user = user;
 	}
-	
-	public static Operator creat(OperatorType type, Object user) {
+
+	public static Operator creat(OperatorType type, OperatorUser user) {
 		return new Operator(type, user);
 	}
+
+	public static Operator creat(OperatorType type, String id, String name) {
+		return new Operator(type, new OperatorUser(id, name));
+	}
 	
-	public static Operator creat(short type, Object user) {
+	public static Operator creat(OperatorType type, String extend) {
+		return new Operator(type, new OperatorUser(extend));
+	}
+
+	public static Operator creat(short type, OperatorUser user) {
 		OperatorType operatorType = OperatorType.valueOf(OperatorType.getName(type));
 		return new Operator(operatorType, user);
 	}
 
-	public Object getUser() {
+	public OperatorUser getUser() {
 		return user;
 	}
 
-	public void setUser(Object user) {
+	public void setUser(OperatorUser user) {
 		this.user = user;
 	}
 
@@ -41,17 +50,5 @@ public class Operator implements Serializable {
 	public void setType(OperatorType type) {
 		this.type = type;
 	}
-	
-    public Integer getUserAsInteger() {
-    	return (Integer)user;
-    }
-    
-    public Long getUserAsLong() {
-    	return (Long)user;
-    }
-    
-    public String getUserAsString() {
-    	return user.toString();
-    }
 
 }
