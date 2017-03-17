@@ -8,6 +8,13 @@ import com.appleframework.model.OperatorUser;
 
 public class ContextOperatorUtility {
 	
+	public static void toThreadLocalOperator() {
+		Operator operator = DistributedOperatorContext.getInstance().getOperator();
+		if(null != operator ) {
+			ThreadLocalOperatorContext.getInstance().setOperator(operator);
+		}
+	}
+	
 	public static void fillOperatorForCreate(Object object) {
 		Operator operator = ThreadLocalOperatorContext.getInstance().getOperator();
 		if(null == operator )
