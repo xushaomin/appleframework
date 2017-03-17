@@ -54,7 +54,10 @@ public class OperatorUser implements Serializable {
 
 	@Override
 	public String toString() {
-		return name + "(" + id + ")";
+		if(null != id)
+			return name + "(" + id + ")";
+		else
+			return extend;
 	}
 
 }
