@@ -16,6 +16,7 @@ public class ThreadLocalOperatorContext implements OperatorContext {
 	
 	static {
 		threadLocal = new ThreadLocal<Map<String, String>>();
+		context = new ThreadLocalOperatorContext();
 	}
 	
 	public void setOperator(Operator operator) {

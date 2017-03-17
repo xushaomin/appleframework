@@ -10,6 +10,10 @@ public class DistributedOperatorContext implements OperatorContext {
 	
 	private static DistributedOperatorContext context;
 	
+	static {
+		context = new DistributedOperatorContext();
+	}
+	
 	public void setOperator(Operator operator) {
 		RpcContext.getContext().setAttachment(KEY_ID, operator.getUser().getId());
 		RpcContext.getContext().setAttachment(KEY_NAME, operator.getUser().getName());
