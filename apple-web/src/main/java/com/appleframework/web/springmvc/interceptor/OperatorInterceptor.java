@@ -19,13 +19,17 @@ public class OperatorInterceptor extends HandlerInterceptorAdapter {
 
 	@Resource
 	private OperatorContext operatorContext;
+	
+	private Integer operatorType;
 
 	@Override
 	public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o)
 			throws Exception {
 		Object user = httpServletRequest.getSession().getAttribute(SESSION_USER_KEY);
 		if (null != user) {
-			Operator operator = Operator.creat(OperatorType.TYPE_01, user.toString());
+			if(null == operatorType)
+				operatorType = OperatorType.TYPE_01.getIndex();
+			Operator operator = Operator.creat(operatorType, user.toString());
 			operatorContext.setOperator(operator);
 		}
 		return true;
@@ -33,6 +37,10 @@ public class OperatorInterceptor extends HandlerInterceptorAdapter {
 
 	public void setOperatorContext(OperatorContext operatorContext) {
 		this.operatorContext = operatorContext;
+	}
+
+	public void setOperatorType(Integer operatorType) {
+		this.operatorType = operatorType;
 	}
 
 }

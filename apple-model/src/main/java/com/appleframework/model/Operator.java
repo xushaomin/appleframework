@@ -30,12 +30,12 @@ public class Operator implements Serializable {
 		return new Operator(type, new OperatorUser(extend));
 	}
 
-	public static Operator creat(short type, OperatorUser user) {
+	public static Operator creat(int type, OperatorUser user) {
 		OperatorType operatorType = OperatorType.valueOf(OperatorType.getName(type));
 		return new Operator(operatorType, user);
 	}
 
-	public static Operator creat(short type, String extend) {
+	public static Operator creat(int type, String extend) {
 		OperatorType operatorType = OperatorType.valueOf(OperatorType.getName(type));
 		return new Operator(operatorType, new OperatorUser(extend));
 	}
