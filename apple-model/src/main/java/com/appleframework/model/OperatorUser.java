@@ -59,5 +59,9 @@ public class OperatorUser implements Serializable {
 		else
 			return extend;
 	}
+	
+	public String getUserAsString(){
+		return toString();
+	}
 
 }

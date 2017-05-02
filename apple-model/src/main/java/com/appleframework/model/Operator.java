@@ -55,5 +55,12 @@ public class Operator implements Serializable {
 	public void setType(OperatorType type) {
 		this.type = type;
 	}
+	
+	public String getUserAsString(){
+		if(null != user)
+			return user.toString();
+		else
+			return null;
+	}
 
 }
