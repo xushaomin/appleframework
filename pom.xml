@@ -8,7 +8,7 @@
 	</parent>
 	<groupId>com.appleframework</groupId>
 	<artifactId>appleframework</artifactId>
-	<version>0.1.8.RELEASE</version>
+	<version>0.1.9.RELEASE</version>
 	<packaging>pom</packaging>
 
 	<name>appleframework</name>
@@ -39,7 +39,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.version>0.1.8.RELEASE</project.version>
+		<project.version>0.1.9.RELEASE</project.version>
 		<appleframework.version>${project.version}</appleframework.version>
 		<java.version>1.7</java.version>
 
