@@ -22,6 +22,10 @@ public class ContextOperatorUtility {
 				String createBy = null;
 				if(null == key || key.equals(KEY_ID)) {
 					createBy = user.getId();
+					try {
+						ReflectionUtility.setFieldValue(object, "createName", user.getName());
+					} catch (Exception e) {
+					}
 				}
 				else {
 					createBy = user.getExtend();
@@ -45,6 +49,10 @@ public class ContextOperatorUtility {
 				String updateBy = null;
 				if(null == key || key.equals(KEY_ID)) {
 					updateBy = user.getId();
+					try {
+						ReflectionUtility.setFieldValue(object, "updateName", user.getName());
+					} catch (Exception e) {
+					}
 				}
 				else {
 					updateBy = user.getExtend();
