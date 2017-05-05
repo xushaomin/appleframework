@@ -10,6 +10,8 @@ import org.springframework.util.PatternMatchUtils;
 import com.appleframework.distributed.utils.ContextOperatorUtility;
 
 public class OperatorInterceptor implements MethodInterceptor {
+	
+	private String fieldKey;
 
 	private List<String> ignoreBeanNameList = new ArrayList<String>();
 
@@ -27,10 +29,10 @@ public class OperatorInterceptor implements MethodInterceptor {
 					}
 				}
 				if (methodName.startsWith("insert") || methodName.startsWith("save")) {
-					ContextOperatorUtility.fillOperatorForCreate(object);
+					ContextOperatorUtility.fillOperatorForCreate(object, fieldKey);
 				} 
 				else if (methodName.startsWith("update")) {
-					ContextOperatorUtility.fillOperatorForUpdate(object);
+					ContextOperatorUtility.fillOperatorForUpdate(object, fieldKey);
 				} else {
 					
 				}
@@ -57,6 +59,10 @@ public class OperatorInterceptor implements MethodInterceptor {
 				}
 			}
 		}
+	}
+
+	public void setFieldKey(String fieldKey) {
+		this.fieldKey = fieldKey;
 	}
 
 }

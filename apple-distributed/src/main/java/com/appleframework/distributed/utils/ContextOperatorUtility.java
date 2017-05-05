@@ -7,7 +7,9 @@ import com.appleframework.model.OperatorUser;
 
 public class ContextOperatorUtility {
 
-	public static void fillOperatorForCreate(Object object) {
+	private static String KEY_ID = "id";
+
+	public static void fillOperatorForCreate(Object object, String key) {
 		Operator operator = ThreadLocalOperatorContext.getInstance().getOperator();
 		if (null != operator) {
 			try {
@@ -17,13 +19,20 @@ public class ContextOperatorUtility {
 			}
 			try {
 				OperatorUser user = operator.getUser();
-				ReflectionUtility.setFieldValue(object, "createBy", user.toString());
+				String createBy = null;
+				if(null == key || key.equals(KEY_ID)) {
+					createBy = user.getId();
+				}
+				else {
+					createBy = user.getExtend();
+				}
+				ReflectionUtility.setFieldValue(object, "createBy", createBy);
 			} catch (Exception e) {
 			}
 		}
 	}
 
-	public static void fillOperatorForUpdate(Object object) {
+	public static void fillOperatorForUpdate(Object object, String key) {
 		Operator operator = ThreadLocalOperatorContext.getInstance().getOperator();
 		if (null != operator) {
 			try {
@@ -33,7 +42,14 @@ public class ContextOperatorUtility {
 			}
 			try {
 				OperatorUser user = operator.getUser();
-				ReflectionUtility.setFieldValue(object, "updateBy", user.toString());
+				String updateBy = null;
+				if(null == key || key.equals(KEY_ID)) {
+					updateBy = user.getId();
+				}
+				else {
+					updateBy = user.getExtend();
+				}
+				ReflectionUtility.setFieldValue(object, "updateBy", updateBy);
 			} catch (Exception e) {
 			}
 		}
