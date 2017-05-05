@@ -50,6 +50,7 @@ public class ThreadLocalOperatorContext implements OperatorContext {
 		return map;
 	}
 	
+	
 	public void set(String key, String value) {
 		Map<String, String> map = this.getMap();
 		map.put(key, value);

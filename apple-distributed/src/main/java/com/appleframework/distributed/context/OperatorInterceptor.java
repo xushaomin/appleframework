@@ -13,7 +13,7 @@ public class OperatorInterceptor implements MethodInterceptor {
 
 	private List<String> ignoreBeanNameList = new ArrayList<String>();
 
-	public Object invoke(MethodInvocation method) throws Throwable {
+	public Object invoke(MethodInvocation method) throws Throwable {   
 		Object[] objects = method.getArguments();
 		if (objects.length > 0) {
 			Object object = objects[0];
@@ -26,7 +26,6 @@ public class OperatorInterceptor implements MethodInterceptor {
 						}
 					}
 				}
-				
 				if (methodName.startsWith("insert") || methodName.startsWith("save")) {
 					ContextOperatorUtility.fillOperatorForCreate(object);
 				} 

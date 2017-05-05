@@ -12,5 +12,5 @@ public interface OperatorContext {
 	public void setOperator(Operator operator);
 	
 	public Operator getOperator();
-		
+			
 }
