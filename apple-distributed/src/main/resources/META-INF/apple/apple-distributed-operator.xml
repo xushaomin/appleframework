@@ -12,7 +12,7 @@
     <bean id="operatorInterceptor"
           class="com.appleframework.distributed.context.OperatorInterceptor">
     	<property name="ignoreRegexs">
-			<value>${operator.ignoreRegexs:select*,get*,count*}</value>
+			<value>${operator.ignoreRegexs:select*,get*,count*,find*}</value>
 		</property>
     </bean>
     
