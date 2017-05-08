@@ -10,7 +10,11 @@ public enum OperatorType {
 	TYPE_04("类型4", 4),
 	TYPE_03("类型3", 3),
 	TYPE_02("类型2", 2),
-	TYPE_01("类型1", 1);
+	TYPE_01("类型1", 1),
+	
+	USER("用户", 1),
+	OSS("运营后台", 2),
+	SYSTEM("系统自动", 3);
 	
 	// 成员变量
 	private String name;
