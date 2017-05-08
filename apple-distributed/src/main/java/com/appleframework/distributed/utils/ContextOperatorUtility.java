@@ -8,13 +8,12 @@ import com.appleframework.model.OperatorUser;
 public class ContextOperatorUtility {
 
 	private static String KEY_ID = "id";
+	private static String KEY_NAME = "name";
 
 	private static String KEY_CREATE_TYPE = "createType";
-	private static String KEY_CREATE_NAME = "createName";
 	private static String KEY_CREATE_BY = "createBy";
 
 	private static String KEY_UPDATE_TYPE = "updateType";
-	private static String KEY_UPDATE_NAME = "updateName";
 	private static String KEY_UPDATE_BY = "updateBy";
 
 	public static void fillOperatorForCreate(Object object, String key) {
@@ -32,12 +31,8 @@ public class ContextOperatorUtility {
 				String createBy = null;
 				if (null == key || key.equals(KEY_ID)) {
 					createBy = user.getId();
-					try {
-						if (null == ReflectionUtility.getFieldValue(object, KEY_CREATE_NAME)) {
-							ReflectionUtility.setFieldValue(object, KEY_CREATE_NAME, user.getName());
-						}
-					} catch (Exception e) {
-					}
+				} else if (key.equals(KEY_NAME)) {
+					createBy = user.getName();
 				} else {
 					createBy = user.getExtend();
 				}
@@ -64,12 +59,8 @@ public class ContextOperatorUtility {
 				String updateBy = null;
 				if (null == key || key.equals(KEY_ID)) {
 					updateBy = user.getId();
-					try {
-						if (null == ReflectionUtility.getFieldValue(object, KEY_UPDATE_NAME)) {
-							ReflectionUtility.setFieldValue(object, KEY_UPDATE_NAME, user.getName());
-						}
-					} catch (Exception e) {
-					}
+				} else if (key.equals(KEY_NAME)) {
+					updateBy = user.getName();
 				} else {
 					updateBy = user.getExtend();
 				}
