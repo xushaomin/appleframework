@@ -32,6 +32,7 @@ public class OperatorUser implements Serializable {
 	public OperatorUser(String id, String name) {
 		this.id = id;
 		this.name = name;
+		this.extend = name + "(" + id + ")";
 	}
 	
 	public OperatorUser(String extend) {
@@ -41,7 +42,7 @@ public class OperatorUser implements Serializable {
 	public OperatorUser(String id, String name, String extend) {
 		this.id = id;
 		this.name = name;
-		this.setExtend(extend);
+		this.extend = extend;
 	}
 
 	public String getExtend() {
@@ -66,6 +67,14 @@ public class OperatorUser implements Serializable {
 	
 	public String getUserAsString(){
 		return toString();
+	}
+	
+	public Integer getUserAsInteger(){
+		return Integer.parseInt(id);
+	}
+	
+	public Long getUserAsLong(){
+		return Long.parseLong(id);
 	}
 
 }
