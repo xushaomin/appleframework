@@ -62,5 +62,19 @@ public class Operator implements Serializable {
 		else
 			return null;
 	}
+	
+	public Long getUserAsLong(){
+		if(null != user)
+			return Long.parseLong(user.getId());
+		else
+			return null;
+	}
+	
+	public Integer getUserAsInteger() {
+		if(null != user)
+			return Integer.parseInt(user.getId());
+		else
+			return null;
+	}
 
 }
