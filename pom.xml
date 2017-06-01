@@ -8,7 +8,7 @@
 	</parent>
 	<groupId>com.appleframework</groupId>
 	<artifactId>appleframework</artifactId>
-	<version>0.1.9.RELEASE</version>
+	<version>0.2.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>appleframework</name>
@@ -39,19 +39,19 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.version>0.1.9.RELEASE</project.version>
+		<project.version>0.2.0-SNAPSHOT</project.version>
 		<appleframework.version>${project.version}</appleframework.version>
 		<java.version>1.7</java.version>
 
 		<junit.version>4.12</junit.version>
-		<aspectj.version>1.8.5</aspectj.version>
-		<javassist.version>3.20.0-GA</javassist.version>
+		<aspectj.version>1.8.10</aspectj.version>
+		<javassist.version>3.21.0-GA</javassist.version>
 
 		<log4j.version>1.2.17</log4j.version>
 		<slf4j.version>1.7.2</slf4j.version>
 
 		<commons.lang.version>2.6</commons.lang.version>
-		<commons.lang3.version>3.4</commons.lang3.version>
+		<commons.lang3.version>3.5</commons.lang3.version>
 		<commons.jexl.version>1.1</commons.jexl.version>
 		<commons.dbcp.version>1.4</commons.dbcp.version>
 		<commons.beanutils.version>1.9.2</commons.beanutils.version>
@@ -61,16 +61,16 @@
 		<commons.collections.version>3.2.1</commons.collections.version>
 		<commons.pool.version>1.6</commons.pool.version>
 
-		<spring.version>4.2.0.RELEASE</spring.version>
+		<spring.version>4.3.8.RELEASE</spring.version>
 
 		<sitemesh.version>2.4.2</sitemesh.version>
 		<freemarker.version>2.3.23</freemarker.version>
 
-		<zookeeper.version>3.4.6</zookeeper.version>
-		<zkclient.version>0.8</zkclient.version>
-		<dubbo.version>2.5.4.APPLE</dubbo.version>
+		<zookeeper.version>3.4.10</zookeeper.version>
+		<zkclient.version>0.10</zkclient.version>
+		<dubbo.version>2.5.3-APPLE-0.3</dubbo.version>
 		
-		<hibernate.validator.version>5.2.4.Final</hibernate.validator.version>
+		<hibernate.validator.version>5.4.1.Final</hibernate.validator.version>
 
 		<maven.test.failure.ignore>true</maven.test.failure.ignore>
 		<maven-site-plugin-version>2.2</maven-site-plugin-version>
