@@ -38,8 +38,8 @@ public abstract class BaseDirective implements TemplateDirectiveModel {
 	}
 	
 	public static TemplateModel getVariable(String name, Environment env) throws TemplateModelException {
-		Assert.hasText(name);
-		Assert.notNull(env);
+		//Assert.hasText(name);
+		//Assert.notNull(env);
 		return env.getVariable(name);
 	}
 	

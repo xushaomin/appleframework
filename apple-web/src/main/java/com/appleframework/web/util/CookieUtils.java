@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.math.NumberUtils;
-import org.springframework.util.Assert;
 
 /**
  * Cookie 辅助类
@@ -41,7 +40,6 @@ public class CookieUtils {
 	 * @return default:20 max:200
 	 */
 	public static int getPageSize(HttpServletRequest request) {
-		Assert.notNull(request);
 		Cookie cookie = getCookie(request, COOKIE_PAGE_SIZE);
 		int count = 0;
 		if (cookie != null) {
@@ -67,7 +65,6 @@ public class CookieUtils {
 	 * @return if exist return cookie, else return null.
 	 */
 	public static Cookie getCookie(HttpServletRequest request, String name) {
-		Assert.notNull(request);
 		Cookie[] cookies = request.getCookies();
 		if (cookies != null && cookies.length > 0) {
 			for (Cookie c : cookies) {
