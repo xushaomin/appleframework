@@ -9,12 +9,15 @@ import javax.xml.bind.annotation.XmlTransient;
  * 实体类 - 基类
  */
 
-@SuppressWarnings("serial")
-public class BaseEntity implements Serializable {
+public abstract class BaseEntity implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	public static final String CREATE_TIME_PROPERTY_NAME = "createTime";// "创建日期"属性名称
 	public static final String UPDATE_TIME_PROPERTY_NAME = "updateTime";// "修改日期"属性名称
 
+	public abstract Serializable getId();
+	
 	@XmlTransient
 	protected Date createTime;// 创建日期
 	
