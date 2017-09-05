@@ -1,5 +1,8 @@
 package com.appleframework.web.bean;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 public class WrapperResponseEntity {
 
 	private static final String SUCCESS_MSG = "操作成功";
@@ -23,6 +26,7 @@ public class WrapperResponseEntity {
 	private String msg = SUCCESS_MSG;
 
 	// 响应数据
+	@JsonInclude(Include.NON_NULL)
 	private Object data;
 
 	public int getCode() {

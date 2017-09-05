@@ -71,6 +71,8 @@
 		<dubbo.version>2.5.3-APPLE-0.3</dubbo.version>
 		
 		<hibernate.validator.version>5.4.1.Final</hibernate.validator.version>
+		
+		<jackson.version>2.8.10</jackson.version>
 
 		<maven.test.failure.ignore>true</maven.test.failure.ignore>
 		<maven-site-plugin-version>2.2</maven-site-plugin-version>
@@ -353,6 +355,13 @@
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-validator</artifactId>
 				<version>${hibernate.validator.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-annotations</artifactId>
+				<version>${jackson.version}</version>
+				<scope>provided</scope>
 			</dependency>
 
 		</dependencies>
