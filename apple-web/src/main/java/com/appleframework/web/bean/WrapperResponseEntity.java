@@ -13,6 +13,11 @@ public class WrapperResponseEntity {
 	public WrapperResponseEntity(Object data) {
 		this.data = data;
 	}
+	
+	public WrapperResponseEntity(Object data, Long count) {
+		this.data = data;
+		this.count = count;
+	}
 
 	public WrapperResponseEntity(int code, String msg) {
 		this.code = code;
@@ -21,6 +26,9 @@ public class WrapperResponseEntity {
 
 	// 状态
 	private int code = 200;
+
+	@JsonInclude(Include.NON_NULL)
+	private Long count;
 
 	// 返回信息
 	private String msg = SUCCESS_MSG;
@@ -51,6 +59,14 @@ public class WrapperResponseEntity {
 
 	public void setData(Object data) {
 		this.data = data;
+	}
+
+	public Long getCount() {
+		return count;
+	}
+
+	public void setCount(Long count) {
+		this.count = count;
 	}
 
 }
