@@ -17,6 +17,7 @@ public class WrapperResponseEntity {
 	public WrapperResponseEntity(Object data, Long count) {
 		this.data = data;
 		this.count = count;
+		this.msg = "";
 	}
 
 	public WrapperResponseEntity(int code, String msg) {

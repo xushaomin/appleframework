@@ -14,6 +14,10 @@ public abstract class AbstractController {
 		return new ResponseEntity<WrapperResponseEntity>(new WrapperResponseEntity(data), HttpStatus.OK);
 	}
 	
+	protected ResponseEntity<WrapperResponseEntity> createResponseEntity(Object data, Integer count) {
+		return new ResponseEntity<WrapperResponseEntity>(new WrapperResponseEntity(data, count.longValue()), HttpStatus.OK);
+	}
+	
 	protected ResponseEntity<WrapperResponseEntity> createResponseEntity(Object data, Long count) {
 		return new ResponseEntity<WrapperResponseEntity>(new WrapperResponseEntity(data, count), HttpStatus.OK);
 	}
