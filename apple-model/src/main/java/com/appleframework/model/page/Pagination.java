@@ -13,6 +13,22 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Pagination extends SimplePage implements java.io.Serializable, Paginable {
 
 	private static final long serialVersionUID = 1385145241579184848L;
+	
+	public static Pagination create() {
+		return new Pagination();
+	}
+	
+	public static Pagination create(long pageNo, long pageSize) {
+		return new Pagination(pageNo, pageSize);
+	}
+	
+	public static Pagination create(long pageNo, long pageSize, long totalCount) {
+		return new Pagination(pageNo, pageSize, totalCount);
+	}
+	
+	public static Pagination create(long pageNo, long pageSize, long totalCount, List<?> list) {
+		return new Pagination(pageNo, pageSize, totalCount, list);
+	}
 
 	public Pagination() {
 	}

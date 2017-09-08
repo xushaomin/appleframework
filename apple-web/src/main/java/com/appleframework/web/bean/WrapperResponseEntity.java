@@ -26,7 +26,7 @@ public class WrapperResponseEntity {
 	}
 
 	// 状态
-	private int code = 200;
+	private int code = 0;
 
 	@JsonInclude(Include.NON_NULL)
 	private Long count;
