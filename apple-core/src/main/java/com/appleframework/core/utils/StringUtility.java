@@ -2455,6 +2455,21 @@ public final class StringUtility {
 
        return str.substring(start, end);
    }
+   
+   /**
+	 * 截取字符串(去掉最后一个逗号符号位)
+	 * @param str
+	 * @return
+	 */
+	public static String substring(String str) {
+		if (isBlank(str)) {
+			return str;
+		}
+		if (str.endsWith(",")) {
+			return str.substring(0, str.length() - 1);
+		}
+		return str;
+	}
 
    /**
     * 取得长度为指定字符数的最左边的子串。

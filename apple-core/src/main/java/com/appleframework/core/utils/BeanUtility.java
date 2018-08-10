@@ -14,8 +14,6 @@ import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.beanutils.PropertyUtilsBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.util.Assert;
-
 
 public class BeanUtility {
 	
@@ -125,7 +123,6 @@ public class BeanUtility {
 	 * 循环向上转型,获取对象的DeclaredField.
 	 */
 	public static Field getDeclaredField(Object object, String fieldName) throws NoSuchFieldException {
-		Assert.notNull(object);
 		return getDeclaredField(object.getClass(), fieldName);
 	}
 
@@ -133,8 +130,6 @@ public class BeanUtility {
 	 * 循环向上转型,获取类的DeclaredField.
 	 */
 	public static Field getDeclaredField(Class<?> clazz, String fieldName) throws NoSuchFieldException {
-		Assert.notNull(clazz);
-		Assert.hasText(fieldName);
 		for (Class<?> superClass = clazz; superClass != Object.class; superClass = superClass.getSuperclass()) {
 			try {
 				return superClass.getDeclaredField(fieldName);
