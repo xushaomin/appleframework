@@ -183,4 +183,13 @@ public class SimplePage implements Paginable, Serializable {
 			this.pageNo = pageNo;
 		}
 	}
+	
+	/**
+	 * 第一条数据位置
+	 * 
+	 * @return
+	 */
+	public long getFirstResult() {
+		return (pageNo - 1) * pageSize;
+	}
 }

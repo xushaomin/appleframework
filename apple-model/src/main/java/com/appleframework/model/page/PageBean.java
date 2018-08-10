@@ -2,8 +2,6 @@ package com.appleframework.model.page;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlTransient;
-
 /**
  * 列表分页。包含list属性。
  * 
@@ -14,7 +12,7 @@ public class PageBean<T> extends SimplePage implements java.io.Serializable, Pag
 
 	private static final long serialVersionUID = 1385145241579184848L;
 	
-	public static <T> PageBean <T> create() {
+	public static <T> PageBean<T> create() {
 		return new PageBean<T>();
 	}
 	
@@ -22,7 +20,7 @@ public class PageBean<T> extends SimplePage implements java.io.Serializable, Pag
 		return new PageBean<T>(pageNo, pageSize);
 	}
 	
-	public static <T> PageBean <T> create(long pageNo, long pageSize, long totalCount) {
+	public static <T> PageBean<T> create(long pageNo, long pageSize, long totalCount) {
 		return new PageBean<T>(pageNo, pageSize, totalCount);
 	}
 	
@@ -77,16 +75,6 @@ public class PageBean<T> extends SimplePage implements java.io.Serializable, Pag
 	}
 
 	/**
-	 * 第一条数据位置
-	 * 
-	 * @return
-	 */
-	@XmlTransient
-	public long getFirstResult() {
-		return (pageNo - 1) * pageSize;
-	}
-
-	/**
 	 * 当前页的数据
 	 */
 	private List<T> list;
@@ -108,7 +96,6 @@ public class PageBean<T> extends SimplePage implements java.io.Serializable, Pag
 	public void setList(List<T> list) {
 		this.list = list;
 	}
-	
 	
 	/**
 	 * 当前页几条数据

@@ -377,8 +377,8 @@
 					<version>2.3.2</version>
 					<configuration>
 						<encoding>UTF-8</encoding>
-						<source>1.6</source>
-						<target>1.6</target>
+						<source>1.7</source>
+						<target>1.7</target>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -569,13 +569,13 @@
 	
 	<distributionManagement>
 		<repository>
-			<id>apple-releases</id>
+			<id>nexus-releases</id>
 			<name>Apple Releases Repository</name>
 			<url>http://mvnrepo.appleframework.com:8081/nexus/content/repositories/releases</url>
 		</repository>
 
 		<snapshotRepository>
-			<id>apple-snapshots</id>
+			<id>nexus-snapshots</id>
 			<name>Apple Snapshots Repository</name>
 			<url>http://mvnrepo.appleframework.com:8081/nexus/content/repositories/snapshots</url>
 		</snapshotRepository>
