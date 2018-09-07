@@ -8,27 +8,27 @@ import java.util.List;
  * @author xusm
  * 
  */
-public class PageBean<T> extends SimplePage implements java.io.Serializable, Paginable {
+public class Paginator<T> extends SimplePage implements java.io.Serializable, Paginable {
 
 	private static final long serialVersionUID = 1385145241579184848L;
 	
-	public static <T> PageBean<T> create() {
-		return new PageBean<T>();
+	public static <T> Paginator<T> create() {
+		return new Paginator<T>();
 	}
 	
-	public static <T> PageBean<T> create(long pageNo, long pageSize) {
-		return new PageBean<T>(pageNo, pageSize);
+	public static <T> Paginator<T> create(long pageNo, long pageSize) {
+		return new Paginator<T>(pageNo, pageSize);
 	}
 	
-	public static <T> PageBean<T> create(long pageNo, long pageSize, long totalCount) {
-		return new PageBean<T>(pageNo, pageSize, totalCount);
+	public static <T> Paginator<T> create(long pageNo, long pageSize, long totalCount) {
+		return new Paginator<T>(pageNo, pageSize, totalCount);
 	}
 	
-	public static <T> PageBean<T> create(long pageNo, long pageSize, long totalCount, List<T> list) {
-		return new PageBean<T>(pageNo, pageSize, totalCount, list);
+	public static <T> Paginator<T> create(long pageNo, long pageSize, long totalCount, List<T> list) {
+		return new Paginator<T>(pageNo, pageSize, totalCount, list);
 	}
 
-	public PageBean() {
+	public Paginator() {
 	}
 	
 	/**
@@ -39,7 +39,7 @@ public class PageBean<T> extends SimplePage implements java.io.Serializable, Pag
 	 * @param pageSize
 	 *            每页几条数据
 	 */
-	public PageBean(long pageNo, long pageSize) {
+	public Paginator(long pageNo, long pageSize) {
 		super(pageNo, pageSize);
 	}
 
@@ -53,7 +53,7 @@ public class PageBean<T> extends SimplePage implements java.io.Serializable, Pag
 	 * @param totalCount
 	 *            总共几条数据
 	 */
-	public PageBean(long pageNo, long pageSize, long totalCount) {
+	public Paginator(long pageNo, long pageSize, long totalCount) {
 		super(pageNo, pageSize, totalCount);
 	}
 
@@ -69,7 +69,7 @@ public class PageBean<T> extends SimplePage implements java.io.Serializable, Pag
 	 * @param list
 	 *            分页内容
 	 */
-	public PageBean(long pageNo, long pageSize, long totalCount, List<T> list) {
+	public Paginator(long pageNo, long pageSize, long totalCount, List<T> list) {
 		super(pageNo, pageSize, totalCount);
 		this.list = list;
 	}
