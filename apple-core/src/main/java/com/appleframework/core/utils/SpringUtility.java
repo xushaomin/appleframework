@@ -1,5 +1,7 @@
 package com.appleframework.core.utils;
 
+import java.util.Map;
+
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.context.ApplicationContext;
@@ -56,6 +58,22 @@ public class SpringUtility implements ApplicationContextAware, DisposableBean {
 	 */
 	public static <T> T getBean(Class<T> requiredType) throws BeansException {
 		return applicationContext.getBean(requiredType);
+	}
+	
+	public static <T> Map<String, T> getBeansOfType(Class<T> type) {
+		if (null != applicationContext) {
+			return applicationContext.getBeansOfType(type);
+		} else {
+			return null;
+		}
+	}
+	
+	public static <T> T getDefaultBeanOfType(Class<T> type) {
+		if (null != applicationContext) {
+			return (T) applicationContext.getBeansOfType(type).values().iterator().next();
+		} else {
+			return null;
+		}
 	}
 
 }
