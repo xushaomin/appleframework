@@ -37,7 +37,7 @@ public class CollectionHelp {
 	}
 
 	public static List<Integer> assemblyIntList(Integer... strings) {
-		List<Integer> lists = new ArrayList<>();
+		List<Integer> lists = new ArrayList<Integer>();
 		for (Integer string : strings) {
 			lists.add(string);
 		}
@@ -45,7 +45,7 @@ public class CollectionHelp {
 	}
 
 	public static List<String> assemblyStrList(String... strings) {
-		List<String> lists = new ArrayList<>();
+		List<String> lists = new ArrayList<String>();
 		for (String string : strings) {
 			lists.add(string);
 		}
@@ -164,7 +164,7 @@ public class CollectionHelp {
 		if (CollectionUtils.isEmpty(arrays)) {
 			return null;
 		}
-		List<Integer> outputCollection = new ArrayList<>(arrays.size());
+		List<Integer> outputCollection = new ArrayList<Integer>(arrays.size());
 		CollectionUtils.collect(arrays, new Transformer() {
 			public Object transform(Object input) {
 				return new Integer((String) input);
@@ -183,7 +183,7 @@ public class CollectionHelp {
 		if (arrays == null || arrays.length == 0) {
 			return null;
 		}
-		return new ArrayList<>(Arrays.asList(arrays));
+		return new ArrayList<String>(Arrays.asList(arrays));
 	}
 
 	/**
@@ -320,7 +320,7 @@ public class CollectionHelp {
 	}
 
 	public static List<String> toListStr(Collection<?> collection) {
-		List<String> strs = new ArrayList<>();
+		List<String> strs = new ArrayList<String>();
 		if (isEmpty(collection)) {
 			return strs;
 		}
@@ -334,7 +334,7 @@ public class CollectionHelp {
 	}
 
 	public static List<Integer> toListInt(Collection<?> collection) {
-		List<Integer> strs = new ArrayList<>();
+		List<Integer> strs = new ArrayList<Integer>();
 		if (isEmpty(collection)) {
 			return strs;
 		}

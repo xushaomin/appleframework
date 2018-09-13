@@ -26,7 +26,7 @@ public class BeanMapUtility {
 	public static Map<String,Object> convertBean(Object bean){
 		try {
 			Class<?> type = bean.getClass();
-			Map<String, Object> returnMap = new HashMap<>();
+			Map<String, Object> returnMap = new HashMap<String, Object>();
 			BeanInfo beanInfo = Introspector.getBeanInfo(type);
 			PropertyDescriptor[] propertyDescriptors = beanInfo.getPropertyDescriptors();
 			for (int i = 0; i < propertyDescriptors.length; i++) {

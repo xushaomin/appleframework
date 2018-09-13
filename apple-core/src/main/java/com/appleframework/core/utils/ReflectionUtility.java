@@ -205,7 +205,7 @@ public final class ReflectionUtility {
 	 * @return
 	 */
 	public static Field[] getAllField(Class<?> clazz) {
-		List<Field> allFields = new ArrayList<>();
+		List<Field> allFields = new ArrayList<Field>();
 		Field[] fields = clazz.getDeclaredFields();
 		allFields.addAll(Arrays.asList(fields));
 		for (Class<?> superClazz = clazz.getSuperclass(); superClazz != Object.class; superClazz = superClazz
@@ -223,7 +223,7 @@ public final class ReflectionUtility {
 	 * @return
 	 */
 	public static Method[] getAllMethod(Class<?> clazz) {
-		List<Method> allMethods = new ArrayList<>();
+		List<Method> allMethods = new ArrayList<Method>();
 		Method[] fields = clazz.getDeclaredMethods();
 		allMethods.addAll(Arrays.asList(fields));
 		for (Class<?> superClazz = clazz.getSuperclass(); superClazz != Object.class; superClazz = superClazz
