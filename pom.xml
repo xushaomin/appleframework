@@ -562,20 +562,20 @@
 	<pluginRepositories>
 		<pluginRepository>
 			<id>apple-repos</id>
-			<url>http://mvnrepo.appleframework.com：8081/nexus/content/groups/public</url>
+			<url>http://mvnrepo.appleframework.com:8081/nexus/content/groups/public</url>
 		</pluginRepository>
 	</pluginRepositories>
 
 	
 	<distributionManagement>
 		<repository>
-			<id>nexus-releases</id>
+			<id>apple-releases</id>
 			<name>Apple Releases Repository</name>
 			<url>http://mvnrepo.appleframework.com:8081/nexus/content/repositories/releases</url>
 		</repository>
 
 		<snapshotRepository>
-			<id>nexus-snapshots</id>
+			<id>apple-snapshots</id>
 			<name>Apple Snapshots Repository</name>
 			<url>http://mvnrepo.appleframework.com:8081/nexus/content/repositories/snapshots</url>
 		</snapshotRepository>
