@@ -12,7 +12,7 @@ package com.appleframework.exception;
  * @author 徐少敏
  * @version 1.0
  */
-public class AppleException extends Exception {
+public class AppleException extends RuntimeException {
 
 	private static final long serialVersionUID = -4379801359412979859L;
 	
