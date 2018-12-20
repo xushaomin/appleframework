@@ -13,13 +13,13 @@ public class SimplePage implements Paginable, Serializable {
 	private static final long serialVersionUID = -5755581162278120462L;
 
 	public static final long DEF_COUNT = 20;
-	public static boolean PAGE_NO_ALLOW_OVERFLOW = true;
+	public static final boolean DEF_ALLOW_OVERFLOW = true;
 
 	protected long totalCount = 0;
 	protected long pageSize = 20;
 	protected long pageNo = 1;
 	
-	protected boolean allowOverflow = true;
+	protected boolean allowOverflow = DEF_ALLOW_OVERFLOW;
 
 	/**
 	 * 检查页码 checkPageNo
