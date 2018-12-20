@@ -13,10 +13,13 @@ public class SimplePage implements Paginable, Serializable {
 	private static final long serialVersionUID = -5755581162278120462L;
 
 	public static final long DEF_COUNT = 20;
+	public static boolean PAGE_NO_ALLOW_OVERFLOW = true;
 
 	protected long totalCount = 0;
 	protected long pageSize = 20;
 	protected long pageNo = 1;
+	
+	protected boolean allowOverflow = true;
 
 	/**
 	 * 检查页码 checkPageNo
@@ -70,9 +73,11 @@ public class SimplePage implements Paginable, Serializable {
 		if (pageNo == 1) {
 			return;
 		}
-		long tp = getTotalPage();
-		if (pageNo > tp) {
-			pageNo = tp;
+		if(!allowOverflow) {
+			long tp = getTotalPage();
+			if (pageNo > tp) {
+				pageNo = tp;
+			}
 		}
 	}
 
@@ -192,4 +197,23 @@ public class SimplePage implements Paginable, Serializable {
 	public long getFirstResult() {
 		return (pageNo - 1) * pageSize;
 	}
+
+	/**
+	 * 是否允许页码pageNo超出totalPage
+	 * 
+	 * @return
+	 */
+	public boolean isAllowOverflow() {
+		return allowOverflow;
+	}
+
+	/**
+	 * 是否允许页码pageNo超出totalPage
+	 * 
+	 * @return
+	 */
+	public void setAllowOverflow(boolean allowOverflow) {
+		this.allowOverflow = allowOverflow;
+	}
+	
 }
