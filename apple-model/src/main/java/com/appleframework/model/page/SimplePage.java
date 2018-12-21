@@ -203,15 +203,6 @@ public class SimplePage implements Paginable, Serializable {
 	 * 
 	 * @return
 	 */
-	public boolean isAllowOverflow() {
-		return allowOverflow;
-	}
-
-	/**
-	 * 是否允许页码pageNo超出totalPage
-	 * 
-	 * @return
-	 */
 	public void setAllowOverflow(boolean allowOverflow) {
 		this.allowOverflow = allowOverflow;
 	}
