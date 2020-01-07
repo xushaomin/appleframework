@@ -6,7 +6,7 @@
 	<parent>
 		<artifactId>appleframework</artifactId>
 		<groupId>com.appleframework</groupId>
-		<version>0.2.2.RELEASE</version>
+		<version>0.2.3-SNAPSHOT</version>
 	</parent>
 	<artifactId>apple-distributed</artifactId>
 	<name>apple-distributed</name>
@@ -39,7 +39,7 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.alibaba</groupId>
+			<groupId>org.apache.dubbo</groupId>
 			<artifactId>dubbo</artifactId>
 			<scope>provided</scope>
 		</dependency>

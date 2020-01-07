@@ -8,7 +8,7 @@
 	</parent>
 	<groupId>com.appleframework</groupId>
 	<artifactId>appleframework</artifactId>
-	<version>0.2.2.RELEASE</version>
+	<version>0.2.3-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>appleframework</name>
@@ -39,7 +39,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.version>0.2.2.RELEASE</project.version>
+		<project.version>0.2.3-SNAPSHOT</project.version>
 		<appleframework.version>${project.version}</appleframework.version>
 		<java.version>1.7</java.version>
 
@@ -66,9 +66,9 @@
 		<sitemesh.version>2.4.2</sitemesh.version>
 		<freemarker.version>2.3.23</freemarker.version>
 
-		<zookeeper.version>3.4.10</zookeeper.version>
+		<zookeeper.version>3.4.14</zookeeper.version>
 		<zkclient.version>0.10</zkclient.version>
-		<dubbo.version>2.5.3-APPLE-0.3</dubbo.version>
+		<dubbo.version>2.7.5</dubbo.version>
 		
 		<hibernate.validator.version>5.4.1.Final</hibernate.validator.version>
 		
@@ -328,7 +328,7 @@
 				<version>${zkclient.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.alibaba</groupId>
+				<groupId>org.apache.dubbo</groupId>
 				<artifactId>dubbo</artifactId>
 				<version>${dubbo.version}</version>
 				<exclusions>
@@ -562,7 +562,7 @@
 	<pluginRepositories>
 		<pluginRepository>
 			<id>apple-repos</id>
-			<url>http://mvnrepo.appleframework.com:8081/nexus/content/groups/public</url>
+			<url>http://mvnrepo.appleframework.com:8081/repository/maven-public</url>
 		</pluginRepository>
 	</pluginRepositories>
 
@@ -570,14 +570,11 @@
 	<distributionManagement>
 		<repository>
 			<id>apple-releases</id>
-			<name>Apple Releases Repository</name>
-			<url>http://mvnrepo.appleframework.com:8081/nexus/content/repositories/releases</url>
+			<url>http://mvnrepo.appleframework.com:8081/repository/apple-releases/</url>
 		</repository>
-
 		<snapshotRepository>
 			<id>apple-snapshots</id>
-			<name>Apple Snapshots Repository</name>
-			<url>http://mvnrepo.appleframework.com:8081/nexus/content/repositories/snapshots</url>
+			<url>http://mvnrepo.appleframework.com:8081/repository/apple-snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
 	 
