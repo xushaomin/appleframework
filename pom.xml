@@ -601,6 +601,8 @@
     	<module>apple-exception</module>
     	<module>apple-web</module>
     	<module>apple-context</module>
+    	<module>apple-logging</module>
+    	<module>apple-ognl</module>
 	</modules>
 	
 </project>
