@@ -98,7 +98,7 @@ public class AppleApplication {
         Properties props = System.getProperties();
         props.setProperty("spring.application.name", appId);
         props.setProperty("spring.profiles.active", profile);
-        props.setProperty("spring.banner.location", "classpath:jaf_banner.txt");
+        props.setProperty("spring.banner.location", "classpath:apple_banner.txt");
         props.setProperty("app.id", appId); 
         props.setProperty("app.env", profile);
         props.setProperty("app.is-local", String.valueOf(isLocalDev()));
