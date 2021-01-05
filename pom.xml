@@ -58,12 +58,13 @@
 		<commons-pool2.version>2.2</commons-pool2.version>
 		<commons-io.version>2.7</commons-io.version>
 		<commons-fileupload.version>1.4</commons-fileupload.version>
+		<commons-beanutils.version>1.9.4</commons-beanutils.version>
 		<hibernate-validator.version>6.1.0.Final</hibernate-validator.version>
-		<xstream.version>1.4.11.1</xstream.version>
+		<xstream.version>1.4.15</xstream.version>
 		
 		<guava.version>19.0</guava.version>
-		<commons.beanutils.version>1.7.0</commons.beanutils.version>
-		<mysql.version>5.1.48</mysql.version>
+		
+		<mysql.version>8.0.16</mysql.version>
 		<mybatis.version>3.5.4</mybatis.version>
 		<mybatis.spring.version>2.0.5</mybatis.spring.version>
 		<codec.version>1.11</codec.version>
@@ -260,7 +261,7 @@
 			<dependency>
 				<groupId>commons-beanutils</groupId>
 				<artifactId>commons-beanutils</artifactId>
-				<version>${commons.beanutils.version}</version>
+				<version>${commons-beanutils.version}</version>
 			</dependency>
 
 			<!-- mybaties -->
