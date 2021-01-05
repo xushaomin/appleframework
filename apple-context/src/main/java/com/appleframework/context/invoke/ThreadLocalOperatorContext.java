@@ -3,7 +3,6 @@ package com.appleframework.context.invoke;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.appleframework.context.invoke.OperatorContext;
 import com.appleframework.model.Operator;
 import com.appleframework.model.OperatorType;
 import com.appleframework.model.OperatorUser;

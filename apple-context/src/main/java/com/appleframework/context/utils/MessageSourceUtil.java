@@ -1,11 +1,11 @@
-package com.appleframework.core.utils;
+package com.appleframework.context.utils;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.support.MessageSourceAccessor;
 
-public class MessageSourceUtility implements ApplicationContextAware {
+public class MessageSourceUtil implements ApplicationContextAware {
 
 	private static MessageSourceAccessor messageSourceAccessor;
 
