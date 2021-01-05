@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.appleframework.launcher.config.LauncherAutoConfiguration,\
+  com.appleframework.launcher.StartEventListener
