@@ -13,7 +13,6 @@ import org.hibernate.validator.constraints.Mod10Check;
 import org.hibernate.validator.constraints.Mod11Check;
 import org.hibernate.validator.constraints.ParameterScriptAssert;
 import org.hibernate.validator.constraints.Range;
-import org.hibernate.validator.constraints.SafeHtml;
 import org.hibernate.validator.constraints.ScriptAssert;
 import org.hibernate.validator.constraints.URL;
 import org.hibernate.validator.constraints.UniqueElements;
@@ -90,7 +89,9 @@ public class ValidationAnnotationDefinitionFactory {
         new BaseValidationAnnotationBuilder<Mod11Check>(){};
         new BaseValidationAnnotationBuilder<ParameterScriptAssert>(){};
         new BaseValidationAnnotationBuilder<Range>(){};
-        new BaseValidationAnnotationBuilder<SafeHtml>(){};
+        
+        // hibernate-validator-6.2.0.Final.jar不支持SafeHtml
+        //new BaseValidationAnnotationBuilder<SafeHtml>(){};
         new BaseValidationAnnotationBuilder<ScriptAssert>(){};
         new BaseValidationAnnotationBuilder<UniqueElements>(){};
         new BaseValidationAnnotationBuilder<URL>(){};

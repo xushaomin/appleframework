@@ -49,7 +49,7 @@
 		<commons-fileupload.version>1.4</commons-fileupload.version>
 		<commons-beanutils.version>1.9.4</commons-beanutils.version>
 		<commons-codec.version>1.11</commons-codec.version>
-		<hibernate-validator.version>6.1.0.Final</hibernate-validator.version>
+		<hibernate-validator.version>6.2.0.Final</hibernate-validator.version>
 		<xstream.version>1.4.15</xstream.version>
 		<guava.version>19.0</guava.version>
 		<cglib.version>2.2.2</cglib.version>
@@ -182,7 +182,7 @@
 	        
 	        <!-- hibernate validator jsr 303-->	        
 	        <dependency>
-	            <groupId>org.hibernate</groupId>
+	            <groupId>org.hibernate.validator</groupId>
 	            <artifactId>hibernate-validator</artifactId>
 	            <version>${hibernate-validator.version}</version>
 	        </dependency>
@@ -414,7 +414,7 @@
 	<pluginRepositories>
 		<pluginRepository>
 			<id>apple-repos</id>
-			<url>http://mvnrepo.appleframework.com:8081/repository/maven-public</url>
+			<url>http://nexus3.appleframework.com:8081/repository/maven-public</url>
 		</pluginRepository>
 	</pluginRepositories>
 
@@ -422,11 +422,11 @@
 	<distributionManagement>
 		<repository>
 			<id>apple-releases</id>
-			<url>http://mvnrepo.appleframework.com:8081/repository/apple-releases/</url>
+			<url>http://nexus3.appleframework.com:8081/repository/apple-releases/</url>
 		</repository>
 		<snapshotRepository>
 			<id>apple-snapshots</id>
-			<url>http://mvnrepo.appleframework.com:8081/repository/apple-snapshots/</url>
+			<url>http://nexus3.appleframework.com:8081/repository/apple-snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
 	 

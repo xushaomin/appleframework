@@ -11,8 +11,7 @@ public interface IdentityGenerator {
     * Gets current id.
     * 
     * @param namespace
-    * @return current id for the specified namespace as long, negative value if
-    *         error.
+    * @return current id for the specified namespace as long, negative value if error.
     * @since 0.2.0
     */
 	public long nextId(final String namespace);
@@ -21,8 +20,7 @@ public interface IdentityGenerator {
     * Gets current id.
     * 
     * @param namespace
-    * @return current id for the specified namespace as long, negative value if
-    *         error.
+    * @return current id for the specified namespace as long, negative value if error.
     * @since 0.2.0
     */
    public abstract long currentId(final String namespace);
