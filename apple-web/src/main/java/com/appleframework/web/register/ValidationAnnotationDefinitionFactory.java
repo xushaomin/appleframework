@@ -45,7 +45,6 @@ import java.util.Map;
 /**
  * @author tanghc
  */
-@SuppressWarnings("deprecation")
 public class ValidationAnnotationDefinitionFactory {
 
     private static Map<Class<?>, ValidationAnnotationBuilder<?>> store = new HashMap<>(64);
