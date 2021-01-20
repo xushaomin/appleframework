@@ -1,6 +1,6 @@
 package com.appleframework.distributed.utils;
 
-import com.appleframework.distributed.context.ThreadLocalOperatorContext;
+import com.appleframework.context.invoke.ThreadLocalOperatorContext;
 import com.appleframework.model.Operator;
 import com.appleframework.model.OperatorUser;
 
