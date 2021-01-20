@@ -56,6 +56,8 @@
 		<jackson-databind.version>2.10.3</jackson-databind.version>
 		<servlet.version>4.0.1</servlet.version>
 		<fastjson.version>1.2.62</fastjson.version>
+		<zookeeper.version>3.6.2</zookeeper.version>
+		<curator.version>5.1.0</curator.version>
 	</properties>
 
 	<dependencyManagement>
@@ -85,7 +87,25 @@
 				<scope>import</scope>
 			</dependency>
 			-->
-						
+			
+			<dependency>
+				<groupId>org.apache.zookeeper</groupId>
+				<artifactId>zookeeper</artifactId>
+				<version>${zookeeper.version}</version>
+			</dependency>
+			
+			<dependency>
+	  			<groupId>org.apache.curator</groupId>
+	  			<artifactId>curator-framework</artifactId>
+	  			<version>${curator.version}</version>
+			</dependency>
+		
+			<dependency>
+			  	<groupId>org.apache.curator</groupId>
+			  	<artifactId>curator-recipes</artifactId>
+			  	<version>${curator.version}</version>
+			</dependency>
+		
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
@@ -475,6 +495,7 @@
 		<module>apple-context</module>
     	<module>apple-launcher</module>
     	<module>apple-web</module>
+    	<module>apple-distributed</module>
     	<module>apple-test</module>
 	</modules>
 	
