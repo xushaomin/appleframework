@@ -18,7 +18,7 @@
     	<oltu.version>0.31</oltu.version>
     	<jwt.version>3.2.0</jwt.version>
     	<marshalling.version>2.0.5.Final</marshalling.version>
-        <itextpdf.version>5.5.12</itextpdf.version>
+        <itextpdf.version>5.5.13.3</itextpdf.version>
         <xmlworker.version>5.5.8</xmlworker.version>
         <itext-asian.version>5.2.0</itext-asian.version>
     </properties>
